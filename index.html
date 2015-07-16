@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  <title>P5 map App</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<div id="map-canvas"></div>
+	<div>
+		<div id="search-filter">
+	  	<div id="categories">
+	  		<h3>Categories</h3>
+		  	<select data-bind='options:categories,
+		  										optionsText:$data,
+		  										selectedOptions:selectedCategories,
+		  										click:showVenuesWithSelectedCategories'
+		  										id="filter" multiple="multiple" size="4">
+		  	</select>
+		  	<p>
+			  	<label for="select-all">Select All </label>
+			  	<input type="checkbox" id="select-all" data-bind="checked:selectedAllCategories, click:toggleSelectAll"/>
+		  	</p>
+	  	</div>
+	  	<form id="search-box" data-bind="submit:showSelectedByQuery">
+		  	<input type="text" id="search" name="search" placeholder="search by name ..."
+		  					data-bind="value:query, valueUpdate:'keyup',event:{'keyup':showSelectedByQuery}"/>
+		  	<button type="submit">GO</button>
+		  	<img src="images/foursquare-wordmark.png" alt="Foursquare" width="100px">
+	  	</form>
+		</div>
+		<ul class="list" data-bind="foreach:myVenues">
+				<li data-bind="visible:isVisible, click:$root.venueListClick">
+					<img data-bind="attr:{src:icon.prefix+'64'+icon.suffix,alt:name}">
+					<div>
+						<h4 data-bind="text:name"></h4>
+						<p data-bind="text:address[0]"></p>
+						<p data-bind="text:address[1]"></p>
+						<h5><em data-bind="text:category"></em></h5>
+					</div>
+				</li>
+		</ul>
+		</div>
+	</div>
+	<script>
+		function noGoogle(script){
+			document.getElementById('map-canvas').innerHTML='<h1>Google is no available, try later...</h1';
+		}
+	</script>
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places" onerror="noGoogle(this)"></script>
+	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="js/knockout-3.3.0.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>
