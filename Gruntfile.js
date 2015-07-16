@@ -18,7 +18,7 @@ module.exports = function(grunt){
 		concat: {
 			dist:{
 				files:{
-					'js/all.js' :['js/jquery-2.1.4.min.js','js/knockout-3.3.0.js','js/appmin..js']
+					'js/all.js' :['js/jquery-2.1.4.min.js','js/knockout-3.3.0.js','js/app.min.js']
 				}
 			}
 		},
