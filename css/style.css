@@ -1,6 +1,34 @@
 body{
   font-family: roboto;
 }
+/*general*/
+h1{
+  padding-top: 120px;
+  text-align: center;
+}
+
+h2{
+  margin:0;
+  padding:5px 0 5px 0;
+}
+
+h3{
+  margin: 0;
+  padding: 0 0 5px 0;
+}
+
+h4{
+  margin:0;
+  padding: 0 0 5px 5px;
+  font-size: 105%;
+  overflow:hidden;
+}
+
+h5{
+  margin:0;
+  padding:0 3px 0 5px;
+  font-size: 75%;
+}
 /*map div*/
 #map-canvas {
     width:100%;
@@ -11,20 +39,16 @@ body{
     overflow:hidden;
 }
 
-#map-canvas h1{
-  padding-top: 120px;
-  text-align: center;
-}
 /*-end-map div*/
 /*Categories and search-box */
-#search-filter {
+.search-filter {
   position: absolute;
   top:20px;
   left:20px;
   display:flex;
 }
 
-#categories, #search-box{
+.categories, .search-box{
   background-color: #ddd;
   border-radius: 3px;
   padding:5px;
@@ -32,42 +56,35 @@ body{
   align-self:flex-start;
 }
 
-#search-box{
+.search-box{
   margin-left: 10px;
 }
 
-#search-box img{
+.search-box img{
   margin-bottom: -10px;
 }
 
-#categories h3{
-  margin: 0;
-  padding: 0 0 5px 0;
-}
-
-#categories p{
+.categories p{
   margin: 0;
   padding: 5px 0 0 0;
 }
 
-#categories select{
+.categories select{
   margin: 0;
   padding: 4px;
   cursor: pointer;
   font-size: 90%;
-  width: 100%;
   appearance:none;
 }
 /*-end-Categories and search-box */
+
 /*list*/
 .list {
   list-style: none;
   position:absolute;
   bottom: 0;
-  height: 105px;
-  width: 96%;
+  width: 95%;
   margin:0;
-  padding:5px 5px 5px 0;
   display: flex;
   justify-content: flex-start;
   z-index: 2;
@@ -81,7 +98,7 @@ body{
   justify-content: flex-start;
   flex:0 0 300px;
   text-align: left;
-  margin:0;
+  margin:5px 0 0 0;
   padding:5px;
 }
 
@@ -97,24 +114,12 @@ body{
   border-radius: 10px;
 }
 
-.list li div h4{
-  margin:0;
-  padding: 0 0 5px 5px;
-  font-size: 105%;
-  overflow:hidden;
-}
-
 .list li div p{
   margin:0;
   padding:0 0 0 5px;
   font-size: 75%;
 }
 
-.list li div h5{
-  margin:0;
-  padding:0 3px 0 5px;
-  font-size: 75%;
-}
 /*-end-list*/
 /* Info window */
 .info-window {
@@ -127,10 +132,6 @@ body{
   width: 300px;
 }
 
-.info-window h2{
-  margin:0;
-  padding:5px 0 5px 0;
-}
 
 .tip {
   margin:0;
@@ -141,8 +142,8 @@ body{
 .tip-label{
   margin: 0;
   padding:5px;
-  width:30px;
-  height: 15px;
+  /*width:30px;
+  height: 15px;*/
   background-color: #000;
   color:white;
   font-weight: bold;
@@ -151,7 +152,7 @@ body{
   text-align: center;
 }
 .tip-wrapper{
-  padding-bottom: 5px 5px;
+  padding-bottom: 5px;
   border-bottom: solid 1px #ddd;
 }
 
@@ -174,15 +175,18 @@ body{
     bottom:175px;
   }
 
-  #categories select{
+  .categories select{
     font-size: 80%;
   }
 
-  #categories h3{
+  h2{
+    font-size: 110%;
+  }
+  h3{
     font-size: 90%;
   }
 
-  #categories label{
+  .categories label{
     font-size: 90%;
   }
 
@@ -203,9 +207,5 @@ body{
 
   .info-window img{
     width: 175px;
-  }
-
-  .info-window h2{
-    font-size: 110%;
   }
 }
