@@ -11,14 +11,14 @@ module.exports = function(grunt){
     	},
     	my_target: {
       	files: {
-        	'js/app.min.js': ['js/app.js']
+        	'dist/js/app.min.js': ['js/app.js']
       }
     },
 		},
 		concat: {
 			dist:{
 				files:{
-					'js/all.js' :['js/jquery-2.1.4.min.js','js/knockout-3.3.0.js','js/app.min.js']
+					'dist/js/all.js' :['js/jquery-2.1.4.min.js','js/knockout-3.3.0.js','dist/js/app.min.js']
 				}
 			}
 		},
@@ -28,7 +28,7 @@ module.exports = function(grunt){
 		cssmin:{
 			dist:{
 				files: {
-					'css/style.min.css' :['css/style.css']
+					'dist/css/style.min.css' :['css/style.css']
 				}
 			}
 		},
@@ -36,9 +36,9 @@ module.exports = function(grunt){
 			dynamic:{
 				files:[{
 					expand:true,
-					cwd:'images/src/',
+					cwd:'images/',
 					src:['**/*.{jpg,gif,png}'],
-					dest:'images/dist/'
+					dest:'dist/images/'
 				}]
 			}
 		},
