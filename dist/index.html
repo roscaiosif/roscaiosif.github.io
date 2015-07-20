@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>P5 map App</title>
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body>
+    <div id="map-wrapper" class="map-wrapper">
+        <div id="map-error" class="map-error"></div>
+        <div id="map-canvas" class="map-canvas"></div>
+    </div>
+    <!--Buttons for the menu and list fro mobile -->
+    <div id="btn-search-filter" class="btn-search-filter hide">
+        <button data-bind="click:hideSearchFilterButton">Menu</button>
+    </div>
+    <div id="btn-list" class="btn-list hide">
+        <button data-bind="click:hideListButton">Show List</button>
+    </div>
+    <!--The search and filter pannels -->
+    <div id="search-filter" class="search-filter">
+        <div class="categories">
+            <h3>Categories</h3>
+            <select data-bind='options:categories,
+							optionsText:$data,
+							selectedOptions:selectedCategories,
+							click:showVenuesWithSelectedCategories'
+                            class="filter" multiple="multiple" size="4">
+            </select>
+            <div class="select-all">
+                <label for="select-all">Select All </label>
+                <input type="checkbox" data-bind="checked:selectedAllCategories, click:toggleSelectAll" />
+            </div>
+        </div>
+        <form class="search-box" data-bind="submit:showSelectedByQuery">
+            <input type="text" placeholder="search by name ..." data-bind="value:query, valueUpdate:'keyup',event:{'keyup':showSelectedByQuery}" />
+            <button type="submit">GO</button>
+            <img src="images/dist/foursquare-wordmark.png" alt="Foursquare" width="100" class="search-image">
+        </form>
+    </div>
+    <!-- end search filter -->
+    <!-- The list -->
+    <div id="list-wrapper" class="list-wrapper">
+        <ul class="list" data-bind="foreach:myVenues">
+            <li data-bind="visible:isVisible, click:$root.venueListClick">
+                <div class="icon-list">
+                    <img data-bind="attr:{src:icon.prefix+'64'+icon.suffix,alt:name}">
+                    <div>
+                        <h5><em data-bind="text:category"></em></h5>
+                    </div>
+                </div>
+                <div class="li-wrapper">
+                    <h3 data-bind="text:name"></h3>
+                    <p data-bind="text:address[0]"></p>
+                    <p data-bind="text:address[1]"></p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- end list -->
+
+    <!--template for the google infowindow -!!need to wrapp it in one extra div!!-->
+    <div data-bind="template: { name: 'info-template', data: crtVenue }" id="info-window"></div>
+    <script type="text/html" id="info-template">
+        <div class="info-window">
+            <div id="img-wrapper" class="img-wrapper">
+                <img data-bind="attr:{src:$root.showCrtPhoto(),alt:name}, visible:photoCount>0">
+            </div>
+            <div id="img-error" class="img-error"></div>
+            <div id="info-wrapper" class="info-wrapper">
+                <h2 data-bind="text: name"></h2>
+                <div class="tip-wrapper">
+                    <div class="tip-label">Tip</div>
+                    <span class="tip" data-bind="text: description"></span>
+                </div>
+                <div class="address">
+                    <p data-bind="if:address[0]"><span data-bind="text:address[0]"></span>
+                    </p>
+                    <p data-bind="if:address[1]"><span data-bind="text:address[1]"></span>
+                    </p>
+                </div>
+                <div class="url" data-bind="if:url">
+                    <a data-bind="attr:{href:url}, text:url"></a>
+                </div>
+                <div class="category">
+                    <p><em data-bind="text:category"></em>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <!--error window template-!!need to wrapp it in one extra div!!-->
+    <div id="error-window">
+        <div class="error-window">
+            <p id="error-message" class="error-message"></p>
+            <button onclick="errorwindow.close()">OK</button>
+        </div>
+    </div>
+
+    <!--on error message for loading Google maps-->
+    <script>
+        function noGoogle(script) {
+            document.getElementById('map-error').innerHTML = '<h1>Google is no available, try later...</h1';
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places" onerror="noGoogle(this)"></script>
+    <script type="text/javascript" src="js/all.js"></script>
+</body>
+
+</html>
