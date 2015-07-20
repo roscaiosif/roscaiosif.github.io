@@ -1,5 +1,5 @@
-# project5
-The application is using the Foursquare API to find "food" venues in Montreal and adds markers to a google map and a list of the found venues
+# My neighborhood, Project 5
+The application uses the Foursquare API to find "food" venues in Montreal and adds markers to a google map and a list of the found venues
 
 Enjoy the app either cloning the this github repo or visit http://roscaiosif.github.io
 - Using the the catogory options it is possible to select one or multiple categories
