@@ -489,7 +489,7 @@
   bottom: 0;
   background: rgba(0, 0, 0, 0.1);
   text-decoration: none;
-  color: #000;/*inherit;*/
+  color: inherit;
   line-height: 3.5em;
   height: 3.5em;
   margin: auto;

@@ -28,7 +28,7 @@ module.exports = function(grunt){
 		cssmin:{
 			dist:{
 				files: {
-					'dist/css/style.min.css' :['css/offline-theme-slide.css','css/style.css']
+					'dist/css/style.min.css' :['css/offline-theme-slide.css','offline-language-english.css','css/style.css']
 				}
 			}
 		},
