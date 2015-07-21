@@ -29,10 +29,12 @@ span {
   padding:0;
 }
 
+/*hide will not work if it is here...maybe the "flex"
 .hide {
   display: none;
-}/*-end-general*/
-
+}
+*/
+/*-end-general*/
 /*map*/
 
 .map-error {
@@ -95,11 +97,11 @@ span {
   width: 10rem;
 }
 
-/*
-.categories input[type="text"] {
-  width: 100%;
+/*strange it works only if after "flex"*/
+.hide {
+  display: none;
 }
-*/
+
 .search-image {
   margin-bottom: -10px;
 }
