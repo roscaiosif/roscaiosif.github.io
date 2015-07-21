@@ -5,7 +5,16 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <title>P5 map App</title>
+    <link rel="stylesheet" href="css/offline-theme-slide.css">
     <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="js/offline.min.js"></script>
+    <script>
+        var run = function(){
+         if (Offline.state === 'up')
+         Offline.check();
+         }
+         setInterval(run, 5000);
+    </script>
 </head>
 
 <body>
