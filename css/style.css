@@ -62,7 +62,6 @@ span {
   position: absolute;
   top:20px;
   left:20px;
-  width: 40vw;
   display:flex;
 }
 
@@ -82,23 +81,25 @@ span {
   padding: 5px;
   background-color: #ddd;
   border-radius: 3px;
-  box-shadow: 5px 5px 5px 5px #888;
+  box-shadow: 5px 5px 5px #888;
   align-self:flex-start;
   flex:0 1 auto;
 }
 
 .search-box {
   margin-left: 5px;
+  width: 50%;
 }
 
 .categories {
   width: 10rem;
 }
 
-.categories input[type='text'] {
-  width: 45%;
+/*
+.categories input[type="text"] {
+  width: 100%;
 }
-
+*/
 .search-image {
   margin-bottom: -10px;
 }
@@ -268,6 +269,14 @@ span {
     top:2px;
     left:2px;
     font-size: 0.75em;
+  }
+
+  .categories {
+    width: 6rem;
+  }
+
+  .search-box {
+     width: 60%;
   }
 
   .list-wrapper {
