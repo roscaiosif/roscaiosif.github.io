@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/offline-theme-slide.css">
     <link rel="stylesheet" href="css/offline-language-english.css">
     <link rel="stylesheet" href="css/style.css">
-    <script type="text/javascript" src="js/offline.min.js"></script>
+    <script src="js/offline.min.js"></script>
     <script>
         var run = function(){
          if (Offline.state === 'up')
@@ -114,14 +114,14 @@
     <!--on error message for loading Google maps-->
     <script>
         function noGoogle(script) {
-            document.getElementById('map-error').innerHTML = '<h1>Google is no available, try later...</h1';
+            document.getElementById('map-error').innerHTML = '<h1>Internet connection lost</h1';
         }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places" onerror="noGoogle(this)"></script>
 
-    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-    <script type="text/javascript" src="js/knockout-3.3.0.js"></script>
-    <script type="text/javascript" src="js/app.js"></script>
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/knockout-3.3.0.js"></script>
+    <script src="js/app.js"></script>
 </body>
 
 </html>
